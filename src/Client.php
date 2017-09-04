@@ -154,11 +154,11 @@ class Client {
      * Get user recent media
      *
      * @param integer [optional] $id        Instagram user ID
-     * @param integer [optional] $limit     Limit of returned results
+     * @param array [optional] $params     Limit of returned results
      * @return mixed
      */
-    public function getUserMedia($id = 'self', $limit = 20) {
-        return $this->_makeCall('users/' . $id . '/media/recent', array('count' => $limit));
+    public function getUserMedia($id = 'self', $limit = array('count' => 20)) {
+        return $this->_makeCall('users/' . $id . '/media/recent', $limit);
     }
 
     /**
